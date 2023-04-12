@@ -18,7 +18,9 @@ class Kernel extends HttpKernel
         \App\Http\Middleware\TrustProxies::class,
 
         // \Fruitcake\Cors\HandleCors::class,
-        \Illuminate\Http\Middleware\HandleCors::class,
+
+        # Class is missing for some reason, uncomment when fixed #
+        //\Illuminate\Http\Middleware\HandleCors::class,
 
         \App\Http\Middleware\PreventRequestsDuringMaintenance::class,
         \Illuminate\Foundation\Http\Middleware\ValidatePostSize::class,
