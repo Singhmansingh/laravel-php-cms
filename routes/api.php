@@ -6,6 +6,8 @@ use Illuminate\Support\Facades\Route;
 use App\Models\Type;
 use App\Models\User;
 use App\Models\Project;
+use App\Models\Experience;
+use App\Models\Skill;
 
 /*
 |--------------------------------------------------------------------------
@@ -47,6 +49,20 @@ Route::get('/projects', function(){
     return $projects;
 
 });
+
+Route::get('/skills',function(){
+    $skills = Skill::orderBy('title')->get();
+
+    return $skills;
+});
+
+Route::get('/experiences',function(){
+    $experience = Experience::orderByDesc('start_date')->get();
+
+    return $experience;
+});
+
+
 
 Route::get('/projects/profile/{project?}', function(Project $project){
 

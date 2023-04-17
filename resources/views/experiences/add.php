@@ -34,14 +34,14 @@
 
         <section class="w3-padding">
 
-            <h2>Add Project</h2>
+            <h2>Add Experience</h2>
 
-            <form method="post" action="/console/projects/add" novalidate class="w3-margin-bottom">
+            <form method="post" action="/console/experiences/add" novalidate class="w3-margin-bottom">
 
                 <?= csrf_field() ?>
 
                 <div class="w3-margin-bottom">
-                    <label for="title">Title:</label>
+                    <label for="title">Job Title:</label>
                     <input type="title" name="title" id="title" value="<?= old('title') ?>" required>
                     
                     <?php if($errors->first('title')): ?>
@@ -51,22 +51,32 @@
                 </div>
 
                 <div class="w3-margin-bottom">
-                    <label for="url">URL:</label>
-                    <input type="url" name="url" id="url" value="<?= old('url') ?>">
+                    <label for="url">Company:</label>
+                    <input type="text" name="company" id="company" value="<?= old('company') ?>">
 
-                    <?php if($errors->first('url')): ?>
+                    <?php if($errors->first('company')): ?>
                         <br>
-                        <span class="w3-text-red"><?= $errors->first('url'); ?></span>
+                        <span class="w3-text-red"><?= $errors->first('company'); ?></span>
                     <?php endif; ?>
                 </div>
 
                 <div class="w3-margin-bottom">
-                    <label for="slug">Slug:</label>
-                    <input type="text" name="slug" id="slug" value="<?= old('slug') ?>" required>
+                    <label for="slug">Start Date:</label>
+                    <input type="date" name="start_date" id="start_date" value="<?= old('start_date') ?>" required>
 
-                    <?php if($errors->first('slug')): ?>
+                    <?php if($errors->first('start_date')): ?>
                         <br>
-                        <span class="w3-text-red"><?= $errors->first('slug'); ?></span>
+                        <span class="w3-text-red"><?= $errors->first('start_date'); ?></span>
+                    <?php endif; ?>
+                </div>
+
+                <div class="w3-margin-bottom">
+                    <label for="slug">End Date:</label>
+                    <input type="date" name="end_date" id="end_date" value="<?= old('end_date') ?>" required>
+
+                    <?php if($errors->first('end_date')): ?>
+                        <br>
+                        <span class="w3-text-red"><?= $errors->first('end_date'); ?></span>
                     <?php endif; ?>
                 </div>
 
@@ -80,28 +90,11 @@
                     <?php endif; ?>
                 </div>
 
-                <div class="w3-margin-bottom">
-                    <label for="type_id">Type:</label>
-                    <select name="type_id" id="type_id">
-                        <option></option>
-                        <?php foreach($types as $type): ?>
-                            <option value="<?= $type->id ?>"
-                                <?= $type->id == old('type_id') ? 'selected' : '' ?>>
-                                <?= $type->title ?>
-                            </option>
-                        <?php endforeach; ?>
-                    </select>
-                    <?php if($errors->first('type_id')): ?>
-                        <br>
-                        <span class="w3-text-red"><?= $errors->first('type_id'); ?></span>
-                    <?php endif; ?>
-                </div>
-
-                <button type="submit" class="w3-button w3-green">Add Project</button>
+                <button type="submit" class="w3-button w3-green">Add Experience</button>
 
             </form>
 
-            <a href="/console/projects/list">Back to Project List</a>
+            <a href="/console/experiences/list">Back to Experience List</a>
 
         </section>
 

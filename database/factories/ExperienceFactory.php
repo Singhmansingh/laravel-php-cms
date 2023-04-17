@@ -21,7 +21,7 @@ class ExperienceFactory extends Factory
             'start_date' => $this->faker->dateTime,
             'end_date' => $this->faker->dateTime,
             'content' => $this->faker->paragraphs(3,true),
-            'photo' => $this->faker->imageUrl
+            'image' => $this->faker->imageUrl
         ];
     }
 }

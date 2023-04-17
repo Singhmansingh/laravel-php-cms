@@ -10,7 +10,7 @@
         <link rel="stylesheet" href="/app.css">
 
         <script src="/app.js"></script>
-        
+
     </head>
     <body>
 
@@ -19,9 +19,9 @@
             <h1 class="w3-text-red">Portfolio Console</h1>
 
             <?php if(Auth::check()): ?>
-                You are logged in as <?= auth()->user()->first ?> <?= auth()->user()->last ?> | 
-                <a href="/console/logout">Log Out</a> | 
-                <a href="/console/dashboard">Dashboard</a> | 
+                You are logged in as <?= auth()->user()->first ?> <?= auth()->user()->last ?> |
+                <a href="/console/logout">Log Out</a> |
+                <a href="/console/dashboard">Dashboard</a> |
                 <a href="/">Website Home Page</a>
             <?php else: ?>
                 <a href="/">Return to My Portfolio</a>
@@ -38,6 +38,7 @@
                 <li><a href="/console/types/list">Manage Types</a></li>
                 <li><a href="/console/users/list">Manage Users</a></li>
                 <li><a href="/console/experiences/list">Manage Experience</a></li>
+                <li><a href="/console/skills/list">Manage Skills</a></li>
                 <li><a href="/console/logout">Log Out</a></li>
             </ul>
 
