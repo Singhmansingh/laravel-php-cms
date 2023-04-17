@@ -45,6 +45,7 @@
                 <tr class="w3-red">
                     <th></th>
                     <th>Title</th>
+                    <th>Color</th>
                     <th>URL</th>
                     <th></th>
                     <th></th>
@@ -58,6 +59,7 @@
                         <td></td>
                         <?php endif; ?>
                         <td><?= $skill->title ?></td>
+                        <td><div style="background-color:<?= $skill->color ?>; width: 25px; height: 25px;"></div></td>
                         <td><a href="<?= $skill->url ?>" target="_blank"><?= $skill->url ?></a></td>
                         <td><a href="/console/skills/image/<?= $skill->id ?>">Image</a></td>
                         <td><a href="/console/skills/edit/<?= $skill->id ?>">Edit</a></td>

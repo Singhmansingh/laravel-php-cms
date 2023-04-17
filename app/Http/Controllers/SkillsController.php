@@ -22,11 +22,13 @@ class SkillsController extends Controller
         $attributes = request()->validate([
             'title' => 'required',
             'url' => 'nullable|url',
+            'color' => 'nullable'
         ]);
 
         $skill = new Skill();
         $skill->title = $attributes['title'];
         $skill->url = $attributes['url'];
+        $skill->color = $attributes['color'];
         $skill->save();
 
         return redirect('/console/skills/list')
@@ -44,10 +46,12 @@ class SkillsController extends Controller
         $attributes = request()->validate([
             'title' => 'required',
             'url' => 'nullable|url',
+            'color' => 'nullable',
         ]);
 
         $skill->title = $attributes['title'];
         $skill->url = $attributes['url'];
+        $skill->color = $attributes['color'];
         $skill->save();
 
         return redirect('/console/skills/list')

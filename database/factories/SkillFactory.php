@@ -20,6 +20,7 @@ class SkillFactory extends Factory
             'title' => $this->faker->word,
             'url' => $this->faker->url,
             'image' => $this->faker->imageUrl,
+            'color' => $this->faker->hexColor
         ];
     }
 }

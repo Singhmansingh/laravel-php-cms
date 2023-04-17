@@ -16,6 +16,7 @@ return new class extends Migration
             $table->text('title');
             $table->text('image')->nullable();
             $table->text('url');
+            $table->text('color')->nullable();
             $table->timestamps();
         });
     }

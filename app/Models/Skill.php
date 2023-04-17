@@ -13,5 +13,6 @@ class Skill extends Model
         'title',
         'url',
         'image',
+        'color'
     ];
 }
