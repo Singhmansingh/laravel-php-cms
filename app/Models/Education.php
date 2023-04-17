@@ -5,9 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Project extends Model
+class Education extends Model
 {
     use HasFactory;
+    public $table = 'educations'; //Fix migration issue
 
     /**
      * The attributes that are mass assignable.
@@ -15,27 +16,17 @@ class Project extends Model
      * @var array<int, string>
      */
     protected $fillable = [
-        'title',
-        'url',
-        'content',
-        'slug',
-        'image',
-        'type_id',
+        'school_name',
         'user_id',
+        'level_of_education',
+        'field',
+        'location',
+        'start_date',
+        'end_date'
     ];
-
-    public function type()
-    {
-        return $this->belongsTo(Type::class, 'type_id');
-    }
 
     public function user()
     {
         return $this->belongsTo(User::class, 'user_id');
-    }
-    
-    public function getRouteKeyName()
-    {
-        return 'slug';
     }
 }
