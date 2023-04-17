@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('level_of_education');
             $table->string('field');
             $table->string('location');
+            $table->text('content');
             $table->date('start_date');
             $table->date('end_date');
             $table->foreignId('user_id');

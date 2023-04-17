@@ -21,6 +21,7 @@ class Education extends Model
         'level_of_education',
         'field',
         'location',
+        'content',
         'start_date',
         'end_date'
     ];

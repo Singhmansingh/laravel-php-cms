@@ -100,6 +100,16 @@
                     <?php endif; ?>
                 </div>
 
+                <div class="w3-margin-bottom">
+                    <label for="content">Content:</label>
+                    <textarea name="content" id="content" required><?= old('content') ?></textarea>
+
+                    <?php if($errors->first('content')): ?>
+                        <br>
+                        <span class="w3-text-red"><?= $errors->first('content'); ?></span>
+                    <?php endif; ?>
+                </div>
+
                 <button type="submit" class="w3-button w3-green">Add Education</button>
 
             </form>

@@ -32,6 +32,7 @@ class EducationsController extends Controller
             'level_of_education' => 'required',
             'field' => 'required',
             'location' => 'required',
+            'content' => 'nullable',
             'start_date' => 'required',
             'end_date' => 'required'
         ]);
@@ -41,6 +42,7 @@ class EducationsController extends Controller
         $education->level_of_education = $attributes['level_of_education'];
         $education->field = $attributes['field'];
         $education->location = $attributes['location'];
+        $education->content = $attributes['content'];
         $education->start_date = $attributes['start_date'];
         $education->end_date = $attributes['end_date'];
         $education->user_id = Auth::user()->id;
@@ -64,6 +66,7 @@ class EducationsController extends Controller
             'level_of_education' => 'required',
             'field' => 'required',
             'location' => 'required',
+            'content' => 'nullable',
             'start_date' => 'required',
             'end_date' => 'required'
         ]);
@@ -72,6 +75,7 @@ class EducationsController extends Controller
         $education->level_of_education = $attributes['level_of_education'];
         $education->field = $attributes['field'];
         $education->location = $attributes['location'];
+        $education->content = $attributes['content'];
         $education->start_date = $attributes['start_date'];
         $education->end_date = $attributes['end_date'];
         $education->save();

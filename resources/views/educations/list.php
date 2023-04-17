@@ -48,6 +48,7 @@
                     <th>Field</th>
                     <th>Location</th>
                     <th>Date</th>
+                    <th>Content</th>
                     <th>Created at</th>
                     <th></th>
                     <th></th>
@@ -60,6 +61,7 @@
                         <td><?= $education->field ?></td>
                         <td><?= $education->location ?></td>
                         <td><?= "{$education->start_date} to {$education->end_date}"?></td>
+                        <td><?= $education->content ?></td>
                         <td><?= $education->created_at->format('M j, Y') ?></td>
                         <td><a href="/console/educations/edit/<?= $education->id ?>">Edit</a></td>
                         <td><a href="/console/educations/delete/<?= $education->id ?>">Delete</a></td>
