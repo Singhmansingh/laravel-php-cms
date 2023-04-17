@@ -7,6 +7,7 @@ use App\Http\Controllers\TypesController;
 use App\Http\Controllers\UsersController;
 use App\Http\Controllers\ExperiencesController;
 use App\Http\Controllers\SkillsController;
+use App\Http\Controllers\EducationsController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -83,3 +84,11 @@ Route::post('/console/skills/edit/{skill:id}', [SkillsController::class, 'edit']
 Route::get('/console/skills/delete/{skill:id}', [SkillsController::class, 'delete'])->where('skill', '[0-9]+')->middleware('auth');
 Route::get('/console/skills/image/{skill:id}', [SkillsController::class, 'imageForm'])->where('skill', '[0-9]+')->middleware('auth');
 Route::post('/console/skills/image/{skill:id}', [SkillsController::class, 'image'])->where('skill', '[0-9]+')->middleware('auth');
+
+// Educations
+Route::get('/console/educations/list', [EducationsController::class, 'list'])->middleware('auth');
+Route::get('/console/educations/add', [EducationsController::class, 'addForm'])->middleware('auth');
+Route::post('/console/educations/add', [EducationsController::class, 'add'])->middleware('auth');
+Route::get('/console/educations/edit/{education:id}', [EducationsController::class, 'editForm'])->where('education', '[0-9]+')->middleware('auth');
+Route::post('/console/educations/edit/{education:id}', [EducationsController::class, 'edit'])->where('education', '[0-9]+')->middleware('auth');
+Route::get('/console/educations/delete/{education:id}', [EducationsController::class, 'delete'])->where('education', '[0-9]+')->middleware('auth');

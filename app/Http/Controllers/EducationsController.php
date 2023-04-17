@@ -21,7 +21,6 @@ class EducationsController extends Controller
     public function addForm()
     {
         return view('educations.add', [
-            'types' => Type::all(),
         ]);
     }
     
@@ -87,12 +86,5 @@ class EducationsController extends Controller
         
         return redirect('/console/educations/list')
             ->with('message', 'Education has been deleted!');        
-    }
-
-    public function imageForm(Education $education)
-    {
-        return view('educations.image', [
-            'education' => $education,
-        ]);
-    }    
+    }  
 }

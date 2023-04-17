@@ -61,7 +61,7 @@
                 </div>
 
                 <div class="w3-margin-bottom">
-                    <label for="slug">Start Date:</label>
+                    <label for="start_date">Start Date:</label>
                     <input type="date" name="start_date" id="start_date" value="<?= old('start_date', $experience->start_date) ?>" required>
 
                     <?php if($errors->first('start_date')): ?>
@@ -71,8 +71,8 @@
                 </div>
 
                 <div class="w3-margin-bottom">
-                    <label for="slug">End Date:</label>
-                    <input type="date" name="end_date" id="end_date" value="<?= old('end_date', $experience->start_date) ?>">
+                    <label for="end_date">End Date:</label>
+                    <input type="date" name="end_date" id="end_date" value="<?= old('end_date', $experience->end_date) ?>">
 
                     <?php if($errors->first('end_date')): ?>
                         <br>

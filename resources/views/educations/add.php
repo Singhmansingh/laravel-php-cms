@@ -34,29 +34,49 @@
 
         <section class="w3-padding">
 
-            <h2>Add Experience</h2>
+            <h2>Add Education</h2>
 
-            <form method="post" action="/console/experiences/add" novalidate class="w3-margin-bottom">
+            <form method="post" action="/console/educations/add" novalidate class="w3-margin-bottom">
 
                 <?= csrf_field() ?>
-
+        
                 <div class="w3-margin-bottom">
-                    <label for="title">Job Title:</label>
-                    <input type="title" name="title" id="title" value="<?= old('title') ?>" required>
+                    <label for="school_name">School Name:</label>
+                    <input type="text" name="school_name" id="school_name" value="<?= old('school_name') ?>" required>
                     
-                    <?php if($errors->first('title')): ?>
+                    <?php if($errors->first('school_name')): ?>
                         <br>
-                        <span class="w3-text-red"><?= $errors->first('title'); ?></span>
+                        <span class="w3-text-red"><?= $errors->first('school_name'); ?></span>
                     <?php endif; ?>
                 </div>
 
                 <div class="w3-margin-bottom">
-                    <label for="url">Company:</label>
-                    <input type="text" name="company" id="company" value="<?= old('company') ?>">
-
-                    <?php if($errors->first('company')): ?>
+                    <label for="level_of_education">Level of Education:</label>
+                    <input type="text" name="level_of_education" id="level_of_education" value="<?= old('level_of_education') ?>" required>
+                    
+                    <?php if($errors->first('level_of_education')): ?>
                         <br>
-                        <span class="w3-text-red"><?= $errors->first('company'); ?></span>
+                        <span class="w3-text-red"><?= $errors->first('level_of_education'); ?></span>
+                    <?php endif; ?>
+                </div>
+
+                <div class="w3-margin-bottom">
+                    <label for="field">Field:</label>
+                    <input type="text" name="field" id="field" value="<?= old('field') ?>" required>
+                    
+                    <?php if($errors->first('field')): ?>
+                        <br>
+                        <span class="w3-text-red"><?= $errors->first('field'); ?></span>
+                    <?php endif; ?>
+                </div>
+
+                <div class="w3-margin-bottom">
+                    <label for="location">Location:</label>
+                    <input type="text" name="location" id="location" value="<?= old('location') ?>" required>
+                    
+                    <?php if($errors->first('location')): ?>
+                        <br>
+                        <span class="w3-text-red"><?= $errors->first('location'); ?></span>
                     <?php endif; ?>
                 </div>
 
@@ -80,21 +100,11 @@
                     <?php endif; ?>
                 </div>
 
-                <div class="w3-margin-bottom">
-                    <label for="content">Content:</label>
-                    <textarea name="content" id="content" required><?= old('content') ?></textarea>
-
-                    <?php if($errors->first('content')): ?>
-                        <br>
-                        <span class="w3-text-red"><?= $errors->first('content'); ?></span>
-                    <?php endif; ?>
-                </div>
-
-                <button type="submit" class="w3-button w3-green">Add Experience</button>
+                <button type="submit" class="w3-button w3-green">Add Education</button>
 
             </form>
 
-            <a href="/console/experiences/list">Back to Experience List</a>
+            <a href="/console/educations/list">Back to Education List</a>
 
         </section>
 
