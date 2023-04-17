@@ -6,6 +6,7 @@ use App\Models\User;
 use App\Models\Type;
 use App\Models\Project;
 use App\Models\Experience;
+use App\Models\Skill;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -18,15 +19,17 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
 
-        //User::truncate();
+        User::truncate();
         Type::truncate();
         Project::truncate();
         Experience::truncate();
-        
-        //User::factory()->count(2)->create();
+        Skill::truncate();
+
+        User::factory()->count(2)->create();
         Type::factory()->count(3)->create();
         Project::factory()->count(4)->create();
         Experience::factory()->count(3)->create();
-            
+        Skill::factory()->count(3)->create();
+
     }
 }

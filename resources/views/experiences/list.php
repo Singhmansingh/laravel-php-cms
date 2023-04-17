@@ -55,8 +55,8 @@
                 <?php foreach($experiences as $experience): ?>
                     <tr>
                         <td>
-                            <?php if($experience->photo): ?>
-                                <img src="<?= $experience->photo ?>" width="200">
+                            <?php if($experience->image): ?>
+                                <img src="<?= $experience->image ?>" width="200">
                             <?php endif; ?>
                         </td>
                         <td><?= $experience->title ?></td>
