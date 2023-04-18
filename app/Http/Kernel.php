@@ -19,8 +19,7 @@ class Kernel extends HttpKernel
 
         // \Fruitcake\Cors\HandleCors::class,
 
-        # Class is missing for some reason, uncomment when fixed #
-        //\Illuminate\Http\Middleware\HandleCors::class,
+        \Illuminate\Http\Middleware\HandleCors::class,
 
         \App\Http\Middleware\PreventRequestsDuringMaintenance::class,
         \Illuminate\Foundation\Http\Middleware\ValidatePostSize::class,
