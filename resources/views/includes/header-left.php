@@ -14,7 +14,7 @@
     </head>
     <body class="body-with-sidebar">
 
-        <header class="w3-padding">
+        <header class="w3-padding header-with-sidebar">
 
             <div class="sidebar">
 
@@ -26,10 +26,10 @@
 
                     <div class="sidebar-menu">
                         <a href="/console/dashboard" class="sidebar-item">Dashboard</a>
-                        <a href="/console/educations/list" class="sidebar-item">Education</a>
-                        <a href="/console/experiences/list" class="sidebar-item">Experience</a>
                         <a href="/console/projects/list" class="sidebar-item">Projects</a>
                         <a href="/console/types/list" class="sidebar-item">Project Types</a>
+                        <a href="/console/experiences/list" class="sidebar-item">Experiences</a>
+                        <a href="/console/educations/list" class="sidebar-item">Educations</a>
                         <a href="/console/skills/list" class="sidebar-item">Skills</a>
                         <a href="/console/users/list" class="sidebar-item">Users</a>
                     </div>
