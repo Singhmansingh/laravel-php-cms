@@ -1,5 +1,5 @@
 <?php
-    include(dirname(__DIR__).'/includes/header.php');
+    include(dirname(__DIR__).'/includes/header-left.php');
 ?>
 
         <hr>

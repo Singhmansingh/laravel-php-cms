@@ -13,6 +13,7 @@
                 <li><a href="/console/experiences/list">Manage Experience</a></li>
                 <li><a href="/console/educations/list">Manage Educations</a></li>
                 <li><a href="/console/skills/list">Manage Skills</a></li>
+                <li><a href="/console/users/list">Manage Users</a></li>
             </ul>
 
         </section>
