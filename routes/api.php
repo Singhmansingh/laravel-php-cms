@@ -8,6 +8,7 @@ use App\Models\User;
 use App\Models\Project;
 use App\Models\Experience;
 use App\Models\Skill;
+use App\Models\Education;
 
 /*
 |--------------------------------------------------------------------------
@@ -75,6 +76,13 @@ Route::get('/projects/profile/{project?}', function(Project $project){
     }
 
     return $project;
+
+});
+
+Route::get('/educations', function(){
+
+    $education = Education::orderBy('start_date')->get();
+    return $education;
 
 });
 
