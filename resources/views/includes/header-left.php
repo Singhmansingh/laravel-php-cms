@@ -14,7 +14,7 @@
     </head>
     <body class="body-with-sidebar">
 
-        <header class="w3-padding header-with-sidebar">
+        <header class="header-with-sidebar">
 
             <div class="sidebar">
 
