@@ -64,7 +64,7 @@
 
                 <div class="w3-margin-bottom">
                     <label for="end_date">End Date:</label>
-                    <input type="date" name="end_date" id="end_date" value="<?= old('end_date', $education->start_date) ?>">
+                    <input type="date" name="end_date" id="end_date" value="<?= old('end_date', $education->end_date) ?>">
 
                     <?php if($errors->first('end_date')): ?>
                         <br>
