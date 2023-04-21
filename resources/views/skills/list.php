@@ -27,7 +27,7 @@
                 <?php foreach($skills as $skill): ?>
                     <tr>
                         <?php if($skill->image): ?>
-                        <td><img src="/storage/<?= $skill->image ?>" width="150" alt="<?= ($skill->title).' Logo'?>"></td>
+                        <td><img src="/storage/<?= $skill->image ?>" height="75" alt="<?= ($skill->title).' Logo'?>"></td>
                         <?php else: ?>
                         <td></td>
                         <?php endif; ?>

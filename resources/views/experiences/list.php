@@ -29,7 +29,7 @@
                     <tr>
                         <td>
                             <?php if($experience->image): ?>
-                                <img src="<?= $experience->image ?>" width="200">
+                                <img src="/storage/<?= $experience->image ?>" width="200">
                             <?php endif; ?>
                         </td>
                         <td><?= $experience->title ?></td>

@@ -57,7 +57,7 @@ Route::get('/console/experiences/image/{experience:id}', [ExperiencesController:
 Route::post('/console/experiences/image/{experience:id}', [ExperiencesController::class, 'image'])->where('experience', '[0-9]+')->middleware('auth');
 Route::get('/console/experiences/edit/{experience:id}', [ExperiencesController::class, 'editForm'])->where('experience', '[0-9]+')->middleware('auth');
 Route::post('/console/experiences/edit/{experience:id}', [ExperiencesController::class, 'edit'])->where('experience', '[0-9]+')->middleware('auth');
-// Route::get('/console/projects/delete/{project:id}', [ProjectsController::class, 'delete'])->where('project', '[0-9]+')->middleware('auth');
+Route::get('/console/experiences/delete/{experience:id}', [ExperiencesController::class, 'delete'])->where('experience', '[0-9]+')->middleware('auth');
 
 // Users
 Route::get('/console/users/list', [UsersController::class, 'list'])->middleware('auth');

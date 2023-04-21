@@ -31,6 +31,17 @@
                         <span class="w3-text-red"><?= $errors->first('url'); ?></span>
                     <?php endif; ?>
                 </div>
+
+                <div class="w3-margin-bottom">
+                    <label for="color">Color:</label>
+                    <input type="color" name="color" id="color" value="<?= old('color') ?>">
+
+                    <?php if($errors->first('color')): ?>
+                        <br>
+                        <span class="w3-text-red"><?= $errors->first('color'); ?></span>
+                    <?php endif; ?>
+                </div>
+
                 <button type="submit" class="w3-button w3-green">Add Skill</button>
 
             </form>

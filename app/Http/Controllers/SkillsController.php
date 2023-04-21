@@ -77,7 +77,7 @@ class SkillsController extends Controller
             'image' => 'required|image',
         ]);
 
-        Storage::delete($skill->image);
+        !is_null($skill->image) && Storage::delete($skill->image);
 
         $path = request()->file('image')->store('skills');
 

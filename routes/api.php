@@ -59,6 +59,15 @@ Route::get('/projects/{user_id?}', function($user_id = null){
 Route::get('/skills/{user_id?}',function($user_id = null){
     $skills = Skill::orderBy('title')->get();
 
+    foreach($skills as $key => $skill)
+    {
+
+        if($skill['image'])
+        {
+            $skills[$key]['image'] = env('APP_URL').'storage/'.$skill['image'];
+        }
+    }
+
     if ($user_id) {
         $userSkills = collect();
         $projects = Project::orderBy('created_at')->with('manySkills')->get()->where('user_id', $user_id);
@@ -68,13 +77,17 @@ Route::get('/skills/{user_id?}',function($user_id = null){
             {
                 foreach($project->manySkills as $skill)
                 {
+
+
                     if (!$userSkills->contains($skill))
                     {
+                        
                         $userSkills->push($skill);
                     }
                 }
             }
         }
+
         $skills = $userSkills;
     }
 

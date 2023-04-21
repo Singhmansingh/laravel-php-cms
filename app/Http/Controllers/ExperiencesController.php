@@ -47,6 +47,15 @@ class ExperiencesController extends Controller
             ->with('message', 'Experience has been added!');
     }
 
+    
+    public function delete(Experience $experience)
+    {
+        $experience->delete();
+        
+        return redirect('/console/experiences/list')
+            ->with('message', 'Job Experience has been deleted!');        
+    }
+
     public function imageForm(Experience $experience)
     {
         return view('experiences.image', [
@@ -62,7 +71,7 @@ class ExperiencesController extends Controller
             'image' => 'required|image',
         ]);
 
-        Storage::delete($experience->image);
+        !is_null($experience->image) && Storage::delete($experience->image);
         
         $path = request()->file('image')->store('experiences');
 
