@@ -35,6 +35,7 @@ class ProjectsController extends Controller
             'title' => 'required',
             'slug' => 'required|unique:projects|regex:/^[A-z\-]+$/',
             'url' => 'nullable|url',
+            'git' => 'nullable|url',
             'content' => 'required',
             'type_id' => 'required',
             'skills' => 'nullable'
@@ -44,6 +45,7 @@ class ProjectsController extends Controller
         $project->title = $attributes['title'];
         $project->slug = $attributes['slug'];
         $project->url = $attributes['url'];
+        $project->git = $attributes['git'];
         $project->content = $attributes['content'];
         $project->type_id = $attributes['type_id'];
         $project->user_id = Auth::user()->id;
@@ -81,6 +83,7 @@ class ProjectsController extends Controller
                 'regex:/^[A-z\-]+$/',
             ],
             'url' => 'nullable|url',
+            'git' => 'nullable|url',
             'content' => 'required',
             'type_id' => 'required',
             'skills' => 'nullable|array'
@@ -89,6 +92,7 @@ class ProjectsController extends Controller
         $project->title = $attributes['title'];
         $project->slug = $attributes['slug'];
         $project->url = $attributes['url'];
+        $project->git = $attributes['git'];
         $project->content = $attributes['content'];
         $project->type_id = $attributes['type_id'];
         $project->save();

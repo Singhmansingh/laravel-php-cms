@@ -17,6 +17,7 @@ class CreateProjectsTable extends Migration
             $table->id();
             $table->string('title');
             $table->string('url')->nullable();
+            $table->string('git')->nullable();
             $table->string('slug')->unique();
             $table->string('image')->nullable();
             $table->text('content');

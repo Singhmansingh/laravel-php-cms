@@ -33,6 +33,16 @@
                 </div>
 
                 <div class="w3-margin-bottom">
+                    <label for="git">Github Link:</label>
+                    <input type="url" name="git" id="git" value="<?= old('git', $project->git) ?>">
+
+                    <?php if($errors->first('git')): ?>
+                        <br>
+                        <span class="w3-text-red"><?= $errors->first('git'); ?></span>
+                    <?php endif; ?>
+                </div>
+
+                <div class="w3-margin-bottom">
                     <label for="slug">Slug:</label>
                     <input type="text" name="slug" id="slug" value="<?= old('slug', $project->slug) ?>" required>
 

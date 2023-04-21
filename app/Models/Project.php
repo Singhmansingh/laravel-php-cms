@@ -17,6 +17,7 @@ class Project extends Model
     protected $fillable = [
         'title',
         'url',
+        'git',
         'content',
         'slug',
         'image',
