@@ -70,6 +70,7 @@ Route::get('/skills/{user_id?}',function($user_id = null){
 
     if ($user_id) {
         $userSkills = collect();
+        $userSkillIds = collect();
         $projects = Project::orderBy('created_at')->with('manySkills')->get()->where('user_id', $user_id);
         foreach($projects as $project)
         {
@@ -78,10 +79,9 @@ Route::get('/skills/{user_id?}',function($user_id = null){
                 foreach($project->manySkills as $skill)
                 {
 
-
-                    if (!$userSkills->contains($skill))
+                    if (!$userSkillIds->contains($skill->id))
                     {
-                        
+                        $userSkillIds->push($skill->id);
                         $userSkills->push($skill);
                     }
                 }
@@ -94,17 +94,6 @@ Route::get('/skills/{user_id?}',function($user_id = null){
     return $skills;
 });
 
-Route::get('/skillsByUserId/{user_id?}',function($user_id = null){
-    $skills = Skill::orderBy('title')->get();
-
-    if ($user_id) {
-        $skills = $skills->whereHas('projects', function($query) use ($user_id) {
-            $query->where('user_id', $user_id);
-        });
-    }
-
-    return $skills;
-});
 
 Route::get('/experiences/{user_id?}',function($user_id = null){
 
