@@ -127,7 +127,7 @@ class ProjectsController extends Controller
             'image' => 'required|image',
         ]);
 
-        Storage::delete($project->image);
+        !is_null($project->image) && Storage::delete($project->image);
         
         $path = request()->file('image')->store('projects');
 
