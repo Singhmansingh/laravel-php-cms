@@ -32,9 +32,13 @@ Route::get('/types', function(){
 
 });
 
-Route::get('/projects', function(){
+Route::get('/projects/{user_id?}', function($user_id = null){
 
-    $projects = Project::orderBy('created_at')->get();
+    $projects = Project::orderBy('created_at')->with('manySkills')->get();
+
+    if ($user_id) {
+        $projects = $projects->where('user_id', $user_id); // Filter by user ID if provided
+    }
 
     foreach($projects as $key => $project)
     {
@@ -51,14 +55,51 @@ Route::get('/projects', function(){
 
 });
 
-Route::get('/skills',function(){
+// Get skills related to a users if user_id is provided
+Route::get('/skills/{user_id?}',function($user_id = null){
     $skills = Skill::orderBy('title')->get();
+
+    if ($user_id) {
+        $userSkills = collect();
+        $projects = Project::orderBy('created_at')->with('manySkills')->get()->where('user_id', $user_id);
+        foreach($projects as $project)
+        {
+            if ($project->manySkills)
+            {
+                foreach($project->manySkills as $skill)
+                {
+                    if (!$userSkills->contains($skill))
+                    {
+                        $userSkills->push($skill);
+                    }
+                }
+            }
+        }
+        $skills = $userSkills;
+    }
 
     return $skills;
 });
 
-Route::get('/experiences',function(){
+Route::get('/skillsByUserId/{user_id?}',function($user_id = null){
+    $skills = Skill::orderBy('title')->get();
+
+    if ($user_id) {
+        $skills = $skills->whereHas('projects', function($query) use ($user_id) {
+            $query->where('user_id', $user_id);
+        });
+    }
+
+    return $skills;
+});
+
+Route::get('/experiences/{user_id?}',function($user_id = null){
+
     $experience = Experience::orderByDesc('start_date')->get();
+
+    if ($user_id) {
+        $experience = $experience->where('user_id', $user_id); // Filter by user ID if provided
+    }
 
     return $experience;
 });
@@ -79,9 +120,14 @@ Route::get('/projects/profile/{project?}', function(Project $project){
 
 });
 
-Route::get('/educations', function(){
+Route::get('/educations/{user_id?}', function($user_id = null){
 
     $education = Education::orderBy('start_date')->get();
+
+    if ($user_id) {
+        $education = $education->where('user_id', $user_id); // Filter by user ID if provided
+    }
+
     return $education;
 
 });
