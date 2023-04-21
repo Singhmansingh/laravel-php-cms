@@ -29,10 +29,14 @@ class DatabaseSeeder extends Seeder
 
         User::factory()->count(2)->create();
         Type::factory()->count(3)->create();
-        Project::factory()->count(4)->create();
+        $projects = Project::factory()->count(4)->create();
         Experience::factory()->count(3)->create();
-        Skill::factory()->count(3)->create();
+        $skills = Skill::factory()->count(3)->create();
         Education::factory()->count(3)->create();
+
+        foreach ($projects as $project) {
+            $project->manySkills()->attach($skills->random(3)->pluck('id'));
+        }
 
     }
 }

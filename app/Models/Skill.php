@@ -9,6 +9,11 @@ class Skill extends Model
 {
     use HasFactory;
 
+    public function manyProjects()
+    {
+        return $this->belongsToMany(Project::class);
+    }
+
     protected $fillable = [
         'title',
         'url',

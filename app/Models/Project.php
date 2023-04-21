@@ -24,6 +24,16 @@ class Project extends Model
         'user_id',
     ];
 
+    public function manySkills()
+    {
+        return $this->belongsToMany(Skill::class);
+    }
+
+    public function skillIds()
+    {
+        return $this->manySkills->pluck('id')->toArray();
+    }
+
     public function type()
     {
         return $this->belongsTo(Type::class, 'type_id');

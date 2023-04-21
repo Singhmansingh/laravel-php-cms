@@ -69,6 +69,19 @@
                     <?php endif; ?>
                 </div>
 
+                <div class="w3-margin-bottom">
+                    <label for="skill_id">Skill:</label>
+                    <br>
+                        <?php foreach($skills as $skill): ?>
+                            <input type="checkbox" id="<?= $skill->id ?>" name="skills[]" value="<?= $skill->id ?>"/>
+                            <label for="<?= $skill->id ?>"> <?= $skill->title ?></label><br>
+                        <?php endforeach; ?>
+                    <?php if($errors->first('skill_id')): ?>
+                        <br>
+                        <span class="w3-text-red"><?= $errors->first('skill_id'); ?></span>
+                    <?php endif; ?>
+                </div>
+
                 <button type="submit" class="w3-button w3-green">Add Project</button>
 
             </form>

@@ -4,15 +4,15 @@
 
         <hr>
 
-        <?php if(session()->has('message')): ?>
-            <div class="w3-padding w3-margin-top w3-margin-bottom">
-                <div class="w3-red w3-center w3-padding"><?= session()->get('message') ?></div>
-            </div>
-        <?php endif; ?>
-
         <section class="w3-padding">
 
             <h2>Manage Projects</h2>
+
+            <?php if(session()->has('message')): ?>
+                <div class="w3-padding w3-margin-top w3-margin-bottom">
+                    <div class="w3-red w3-center w3-padding"><?= session()->get('message') ?></div>
+                </div>
+            <?php endif; ?>
 
             <table class="w3-table w3-stripped w3-bordered w3-margin-bottom">
                 <tr class="w3-red">
@@ -20,6 +20,7 @@
                     <th>Title</th>
                     <th>Slug</th>
                     <th>Type</th>
+                    <th>Skills</th>
                     <th>Created</th>
                     <th></th>
                     <th></th>
@@ -39,6 +40,13 @@
                             </a>
                         </td>
                         <td><?= $project->type->title ?></td>
+                        <td>
+                            <?php if($project->manySkills): ?>
+                                <?php foreach($project->manySkills as $skill): ?>
+                                    <?= $skill->title ?> <br>
+                                <?php endforeach; ?>
+                            <?php endif; ?>
+                        </td>
                         <td><?= $project->created_at->format('M j, Y') ?></td>
                         <td><a href="/console/projects/image/<?= $project->id ?>">Image</a></td>
                         <td><a href="/console/projects/edit/<?= $project->id ?>">Edit</a></td>
